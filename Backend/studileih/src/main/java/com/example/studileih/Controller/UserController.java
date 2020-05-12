@@ -70,7 +70,7 @@ public class UserController {
      * Get's an user as JSON from the angular-client and saves it as a new user into the repository
      */
     @PostMapping("saveUser")
-    public Boolean saveRoof(@RequestBody UserDto userDto) {
+    public Boolean saveUser(@RequestBody UserDto userDto) {
         userServiceImpl.saveOrUpdateUser(new User(userDto.getName()));
         return true;
     }
