@@ -2,8 +2,10 @@ package com.example.studileih.Controller;
 
 import com.example.studileih.Dto.UserDto;
 import com.example.studileih.Entity.Product;
+import com.example.studileih.Entity.Tool;
 import com.example.studileih.Entity.User;
-import com.example.studileih.Repository.ProductRepository;
+import com.example.studileih.Repository.ToolRepository;
+import com.example.studileih.Service.ToolServiceImpl;
 import com.example.studileih.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,16 +25,16 @@ public class UserController {
     private UserServiceImpl userServiceImpl;
 
     @Autowired
-    private ProductRepository productRepository;
+    private ToolServiceImpl toolServiceImpl;
 
     @PostConstruct
     public void createBaseDataset() {
         // can be deleted
-        Product product1 = new Product("Haralds VW Golf");
+        Tool product1 = new Tool("Haralds VW Golf");
         product1.setCreatedAt(Calendar.getInstance().getTime());
         product1.setUpdatedAt(Calendar.getInstance().getTime());
 
-        Product product2 = new Product("Haralds 2. VW Golf");
+        Tool product2 = new Tool("Haralds 2. VW Golf");
         product2.setCreatedAt(Calendar.getInstance().getTime());
         product2.setUpdatedAt(Calendar.getInstance().getTime());
         List<Product> haraldsList = new ArrayList<>();
@@ -45,12 +47,12 @@ public class UserController {
         userServiceImpl.saveOrUpdateUser(user);
         product1.setUser(user);
         product2.setUser(user);
-        productRepository.save(product1);
-        productRepository.save(product2);
-        Optional<User> user2 = userServiceImpl.getUserById(23L);
+        toolServiceImpl.saveOrUpdateTool(product1);
+        toolServiceImpl.saveOrUpdateTool(product2);
+       /* Optional<User> user2 = userServiceImpl.getUserById(23L);
         User user3 = user2.get();
         user3.setUpdatedAt(Calendar.getInstance().getTime());
-        userServiceImpl.saveOrUpdateUser(user3);
+        userServiceImpl.saveOrUpdateUser(user3); */
     }
 
     /**
