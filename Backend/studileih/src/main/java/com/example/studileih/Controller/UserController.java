@@ -62,7 +62,7 @@ public class UserController {
      * @return: all users from the repository
      */
     @GetMapping("getAllUsers")
-    public List<User> getAllRoofOffers() {
+    public List<User> getAllUsers() {
         return userServiceImpl.listAllUser();
     }
 
