@@ -1,6 +1,7 @@
 package com.example.studileih.Controller;
 
 import com.example.studileih.Dto.UserDto;
+import com.example.studileih.Entity.Dorm;
 import com.example.studileih.Entity.Product;
 import com.example.studileih.Entity.Tool;
 import com.example.studileih.Entity.User;
@@ -30,6 +31,9 @@ public class UserController {
     @PostConstruct
     public void createBaseDataset() {
         // can be deleted
+        Dorm inDerAu = new Dorm("In der Au 16");
+        inDerAu.setCreatedAt(Calendar.getInstance().getTime());
+        inDerAu.setUpdatedAt(Calendar.getInstance().getTime());
         Tool product1 = new Tool("Haralds VW Golf");
         product1.setCreatedAt(Calendar.getInstance().getTime());
         product1.setUpdatedAt(Calendar.getInstance().getTime());
@@ -41,7 +45,7 @@ public class UserController {
         haraldsList.add(product1);
         haraldsList.add(product2);
 
-        User user = new User("Harald", "harald@gmx.com", "2345", haraldsList);
+        User user = new User("Harald", "harald@gmx.com", "2345", haraldsList, inDerAu);
         user.setCreatedAt(Calendar.getInstance().getTime());
         user.setUpdatedAt(Calendar.getInstance().getTime());
         userServiceImpl.saveOrUpdateUser(user);

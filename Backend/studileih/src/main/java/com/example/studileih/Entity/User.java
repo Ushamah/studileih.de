@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -22,10 +19,12 @@ public class User extends BaseEntity{
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = {
-            CascadeType.ALL
-    })
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private List<Product> products;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dorm")
+    private Dorm dorm;
 
     public User(String name) {
         this.name = name;
