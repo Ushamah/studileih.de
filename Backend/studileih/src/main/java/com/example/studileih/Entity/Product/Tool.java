@@ -1,5 +1,6 @@
-package com.example.studileih.Entity;
+package com.example.studileih.Entity.Product;
 
+import com.example.studileih.Entity.Product.Product;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -7,10 +8,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tool")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@ToString
 public class Tool extends Product {
 
 

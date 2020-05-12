@@ -1,6 +1,6 @@
 package com.example.studileih.Service;
 
-import com.example.studileih.Entity.Tool;
+import com.example.studileih.Entity.Product.Tool;
 import com.example.studileih.Repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
