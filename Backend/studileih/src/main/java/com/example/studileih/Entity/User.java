@@ -18,6 +18,7 @@ public class User extends BaseEntity{
     private String name;
     private String email;
     private String password;
+    private String room;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private List<Product> products;
@@ -28,5 +29,19 @@ public class User extends BaseEntity{
 
     public User(String name) {
         this.name = name;
+    }
+
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password, List<Product> products, Dorm dorm) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.products = products;
+        this.dorm = dorm;
     }
 }

@@ -1,10 +1,7 @@
 package com.example.studileih.Controller;
 
 import com.example.studileih.Dto.UserDto;
-import com.example.studileih.Entity.Dorm;
-import com.example.studileih.Entity.Product;
-import com.example.studileih.Entity.Tool;
-import com.example.studileih.Entity.User;
+import com.example.studileih.Entity.*;
 import com.example.studileih.Repository.ToolRepository;
 import com.example.studileih.Service.ToolServiceImpl;
 import com.example.studileih.Service.UserServiceImpl;
@@ -34,6 +31,7 @@ public class UserController {
         Dorm inDerAu = new Dorm("In der Au 16");
         inDerAu.setCreatedAt(Calendar.getInstance().getTime());
         inDerAu.setUpdatedAt(Calendar.getInstance().getTime());
+        Address inderAuAddress = new Address("In der Au 16", inDerAu);
         Tool product1 = new Tool("Haralds VW Golf");
         product1.setCreatedAt(Calendar.getInstance().getTime());
         product1.setUpdatedAt(Calendar.getInstance().getTime());
