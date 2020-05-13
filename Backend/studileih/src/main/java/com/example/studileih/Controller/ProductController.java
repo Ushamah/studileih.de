@@ -76,12 +76,10 @@ public class ProductController {
      */
     List<String> files = new ArrayList<>();
     String filePath;
-
     @PostMapping("/postImage")
     public void handleFileUpload(@RequestParam("file") MultipartFile file, String userId, String groupId, String postId, String imgType) {
         // Update User Long.parseLong(userId) or group or post depending on imgType:
         // -> if the image is a userPic -> update user with the newly generated photoId of the just saved photo
-        System.out.println("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
         if (imgType.equals("userPic")) {
             Optional<User> optionalEntity =  userServiceImpl.getUserById(Long.parseLong(userId));
             User user = optionalEntity.get();
@@ -92,7 +90,6 @@ public class ProductController {
             } catch (Exception e) {
                 System.out.println("Error at groupController.handleFileUpload():" + e);
             }
-            Path path = FileSystems.getDefault().getPath(filePath);
             user.setProfilePic(filePath);
             userServiceImpl.saveOrUpdateUser(user);
 
@@ -106,7 +103,7 @@ public class ProductController {
     }
 
     /*
-     * getting all images from local storage! to angular (not from database)
+     * getting all images from local storage! to angular
      */
     @GetMapping("/allImages")
     public ResponseEntity<List<String>> getListFiles(Model model) {
