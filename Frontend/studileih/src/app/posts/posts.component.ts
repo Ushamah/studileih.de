@@ -7,15 +7,14 @@ import { DataService } from '../data.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-
   posts$: Object;
   
   constructor(private data: DataService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.data.getPosts().subscribe(
       data => this.posts$ = data 
-    )
+    );
   }
 
 }
