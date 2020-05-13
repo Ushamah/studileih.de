@@ -10,6 +10,8 @@ import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ProductsComponent } from './products/products.component';
+import { UploadFileService } from './_services/upload-file.service';
+import { UploadFileComponent } from './_components/upload-file/upload-file.component';
 
 HttpClientModule
 @NgModule({
@@ -19,7 +21,8 @@ HttpClientModule
     PostsComponent,
     UsersComponent,
     DetailsComponent,
-    ProductsComponent
+    ProductsComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ HttpClientModule
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [UploadFileService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

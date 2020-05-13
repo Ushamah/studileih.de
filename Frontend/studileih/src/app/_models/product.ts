@@ -9,6 +9,5 @@ export interface Product {
     available?: boolean;
     createdAt?: string;
     updatedAt?: string;
-    picPaths?: string[];
-    
+    picPaths?: string[];  
 }
