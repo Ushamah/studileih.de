@@ -8,13 +8,13 @@ import { DataService } from '../data.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  products: Object;
+  products: any;
   
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.getProducts().subscribe(
-      data => {this.products = data; console.log("data"); console.log(data)} 
+      data => {this.products = data; console.log("data"); console.log(this.products)} 
     );
   }
 

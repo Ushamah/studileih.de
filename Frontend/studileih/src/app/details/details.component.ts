@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
 import { ActivatedRoute } from "@angular/router";
+
+import { switchMap } from 'rxjs/operators';
+
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-details',
@@ -9,21 +11,17 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  user: any;
 
-  user$: Object;
-  
-  constructor(private route: ActivatedRoute, private data: DataService) { 
-    
-     this.route.params.subscribe( params => this.user$ = params.id );
-     console.log(this.user$)
-  }
+  constructor(private route: ActivatedRoute, private data: DataService) { }
 
   ngOnInit() {
-    this.data.getUser(this.user$).subscribe(
-      data => {this.user$ = data;
-        console.log(this.user$)
-      }
-      );  
+    this.route.params.pipe(switchMap(params => this.data.getUser(params['id'])))
+      .subscribe(
+        data => {
+          this.user = data;
+          console.log(this.user);
+        }
+      );
   }
-
 }
