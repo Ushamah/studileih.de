@@ -6,7 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
+  serverPath = 'http://localhost:8090';
+
   constructor(private http: HttpClient) { }
+
+  getProducts() {
+    return this.http.get(this.serverPath + '/allProducts')
+  }
 
   getUsers() {
     return this.http.get('https://jsonplaceholder.typicode.com/users')
