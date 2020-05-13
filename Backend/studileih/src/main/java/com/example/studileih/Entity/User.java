@@ -3,6 +3,7 @@ package com.example.studileih.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.nio.file.Path;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,7 @@ public class User extends BaseEntity{
     private String email;
     private String password;
     private String room;
+    private String profilePic;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private List<Product> products;
