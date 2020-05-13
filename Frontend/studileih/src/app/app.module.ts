@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ProductsComponent } from './products/products.component';
 
 HttpClientModule
 @NgModule({
@@ -17,7 +18,8 @@ HttpClientModule
     SidebarComponent,
     PostsComponent,
     UsersComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

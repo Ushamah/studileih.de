@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 })
 export class ProductsComponent implements OnInit {
   products: any;
+
   
   constructor(private data: DataService) { }
 
