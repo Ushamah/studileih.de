@@ -1,4 +1,4 @@
-package com.example.studileih.Entity.Product;
+package com.example.studileih.Entity;
 
 import com.example.studileih.Entity.BaseEntity;
 import com.example.studileih.Entity.User;
@@ -15,17 +15,18 @@ import java.util.ArrayList;
 @Entity
 @Data
 @NoArgsConstructor
-public abstract class Product extends BaseEntity {
+public class Product extends BaseEntity {
 
      private String name;
      private String title;
+     private String type;
      private double price = 0;
      private int views = 0; //How often was the product viewed?
      private boolean available = true; //is it available?
      private ArrayList<Path> picPaths;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "instructor_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     //for testing

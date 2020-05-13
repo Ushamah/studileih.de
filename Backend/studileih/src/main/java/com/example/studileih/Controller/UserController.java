@@ -2,9 +2,8 @@ package com.example.studileih.Controller;
 
 import com.example.studileih.Dto.UserDto;
 import com.example.studileih.Entity.*;
-import com.example.studileih.Entity.Product.Product;
-import com.example.studileih.Entity.Product.Tool;
-import com.example.studileih.Service.ToolServiceImpl;
+import com.example.studileih.Entity.Product;
+import com.example.studileih.Service.ProductServiceImpl;
 import com.example.studileih.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,20 +23,20 @@ public class UserController {
     private UserServiceImpl userServiceImpl;
 
     @Autowired
-    private ToolServiceImpl toolServiceImpl;
+    private ProductServiceImpl ProductServiceImpl;
 
     @PostConstruct
     public void createBaseDataset() {
-        // can be deleted
+        // can be deleted later
         Dorm inDerAu = new Dorm("In der Au 16");
         inDerAu.setCreatedAt(Calendar.getInstance().getTime());
         inDerAu.setUpdatedAt(Calendar.getInstance().getTime());
         Address inderAuAddress = new Address("In der Au 16", inDerAu);
-        Tool product1 = new Tool("Haralds VW Golf");
+        Product product1 = new Product("Haralds VW Golf");
         product1.setCreatedAt(Calendar.getInstance().getTime());
         product1.setUpdatedAt(Calendar.getInstance().getTime());
 
-        Tool product2 = new Tool("Haralds 2. VW Golf");
+        Product product2 = new Product("Haralds 2. VW Golf");
         product2.setCreatedAt(Calendar.getInstance().getTime());
         product2.setUpdatedAt(Calendar.getInstance().getTime());
         List<Product> haraldsList = new ArrayList<>();
@@ -50,8 +49,8 @@ public class UserController {
         userServiceImpl.saveOrUpdateUser(user);
         product1.setUser(user);
         product2.setUser(user);
-        toolServiceImpl.saveOrUpdateTool(product1);
-        toolServiceImpl.saveOrUpdateTool(product2);
+        ProductServiceImpl.saveOrUpdateProduct(product1);
+        ProductServiceImpl.saveOrUpdateProduct(product2);
        /* Optional<User> user2 = userServiceImpl.getUserById(23L);
         User user3 = user2.get();
         user3.setUpdatedAt(Calendar.getInstance().getTime());

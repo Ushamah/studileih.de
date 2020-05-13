@@ -2,16 +2,17 @@ package com.example.studileih.Dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
-public abstract class ProductDto {
+public class ProductDto {
     private Long id;
     private Long userId;
     private String name;
-    private String title;
+    @NonNull private String title;
     private double price = 0;
     private int views = 0; //How often was the product viewed?
     private boolean available = true; //is it available?

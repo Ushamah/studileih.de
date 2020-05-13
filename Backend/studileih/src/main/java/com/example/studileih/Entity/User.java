@@ -1,6 +1,5 @@
 package com.example.studileih.Entity;
 
-import com.example.studileih.Entity.Product.Product;
 import lombok.*;
 
 import javax.persistence.*;
